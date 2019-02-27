@@ -1,0 +1,80 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/bulma.css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+</head>
+
+<body>
+    <section class="hero is-primary is-bold">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Raiders of the Lost Guids
+                </h1>
+                <h2 class="subtitle">
+                    Find Guids in text
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-fluid">
+            <div class="field">
+                <label class="label">Text</label>
+                <div class="control">
+                    <textarea class="textarea" placeholder="Insert text here" rows="11" id="textWithGuids"></textarea>
+                    <p class="help is-danger is-hidden" id="textError">Please supply text</p>
+                    <p class="help is-danger is-hidden" id="noGuidsFound">Please enter text with Guids</p>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <label class="radio">
+                        <input type="radio" name="isUnique" id="isUnique" value="true" />
+                        Find Only Unique Guids
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="isUnique" id="isNotUnique" value="false" />
+                        Find All Guids
+                    </label>
+                </div>
+                <p class="help is-danger is-hidden" id="textUnique">Please choose option</p>
+            </div>
+
+            <div class="field is-grouped">
+                <div class="control">
+                    <button class="button is-primary" onclick="findGuids()">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal is-clipped" id="results">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Your list of Guids</p>
+                <button class="delete" aria-label="close" onclick="hideModal()"></button>
+            </header>
+            <textarea class="textarea has-fixed-size is-primary" id="listOfGuids" readonly>
+        </textarea>
+            <footer class="modal-card-foot">
+                <button class="button is-primary" onclick="copyToClipboard()">
+                    Copy to clipboard
+                </button>
+                <button class="button is-danger" type="button" onclick="hideModal()">
+                    Cancel
+                </button>
+            </footer>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
